@@ -1,0 +1,41 @@
+<div>
+  <header id="content-header">
+    {{ title }}
+  </header>
+
+  <!--MDB Tables-->
+  <div class="container mt-4">
+    <div class="card mb-4">
+      <div class="card-body">
+        <!-- Grid row -->
+        <div class="row">
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        <!--Table-->
+        <table class="table table-striped">
+          <!--Table head-->
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile No.</th>
+            </tr>
+          </thead>
+          <!--Table head-->
+          <!--Table body-->
+          <tbody *ngFor="let user of users">
+            <tr>
+              <th scope="row">{{user.id}}</th>
+              <td>{{ user.firstName }}&nbsp;{{user.lastName}} </td>
+              <td>{{ user.email}}</td>
+              <td>{{ user.mbleNo }}</td>
+            </tr>
+          </tbody>
+          <!--Table body-->
+        </table>
+        <!--Table-->
+      </div>
+    </div>
+  </div>
