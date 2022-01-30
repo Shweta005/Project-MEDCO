@@ -49,21 +49,23 @@ exports.findByPk=(req,resp)=>{
 // VALUES (?, ?, ?, ?, ?);
 exports.create = (req, resp) => {
     if(!req.body.firstName){
-        res.status(400).send({
+        resp.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
-    const newUser={
+    const newUser ={
         
         firstName:req.body.firstName,
         lastName:req.body.lastName,
         email:req.body.email,
         mbleNo:req.body.mbleNo,
+        address:req.body.address,
         password:req.body.password,
         createdAt: new Date(),
         updatedAt:new Date()  
     }
+    console.log(newUser);
     User.create(newUser)
         .then(data=>{resp.send(data);})
         .catch((err) => {
@@ -71,6 +73,7 @@ exports.create = (req, resp) => {
                 message: err.message || " Some error Creating new Person data"
             })
         })
+       
 }
 // UPDATE public."People"
 // 	SET id=?, "firstName"=?, "lastName"=?, "createdAt"=?, "updatedAt"=?

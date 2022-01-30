@@ -49,7 +49,7 @@ exports.findByPk=(req,resp)=>{
 // VALUES (?, ?, ?, ?, ?);
 exports.create = (req, resp) => {
     if(!req.body.productName){
-        res.status(400).send({
+        resp.status(400).send({
             message: "Content can not be empty!"
         });
         return;
@@ -60,10 +60,11 @@ exports.create = (req, resp) => {
        productName: req.body.productName,
        productDesc:req.body.productDesc,
        categoryName:req.body.categoryName,
+       catId:req.body.catId,
        mfgName:req.body.mfgName,
        price: req.body.price,
-       createdAt: new Date()  ,
-       updatedAt:new Date()  
+        createdAt: new Date()  ,
+        updatedAt:new Date()  
        
     }
     Product.create(newProduct)

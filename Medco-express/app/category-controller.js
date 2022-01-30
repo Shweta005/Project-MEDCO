@@ -49,7 +49,7 @@ exports.findByPk=(req,resp)=>{
 // VALUES (?, ?, ?, ?, ?);
 exports.create = (req, resp) => {
     if(!req.body.catName){
-        res.status(400).send({
+        resp.status(400).send({
             message: "Content can not be empty!"
         });
         return;
