@@ -1,41 +1,62 @@
 
-
 <div class="row">
   <div class="col-md-12">
-    <form action="index.html" method="post">
+    <form [formGroup]="addProductForm"  (submit)="addProduct()" novalidate >
       <h1>Add Product </h1>
 
       <fieldset>
         <label for="name">Product Name:</label>
-        <input type="text" id="name" name="user_name">
+        <input type="text" id="name" required formControlName="productName" name="user_name"/>
+ <div *ngIf="addProductForm.controls['productName'].invalid && addProductForm.controls['productName'].touched" class="alert alert-danger">
+      <div *ngIf="addProductForm.controls['productName'].errors">
+    Product name must be alphabets or must have a value.
+     </div>
+     </div>
 
-        <label for="product-id">Product Id:</label>
-        <input type="number" id="mail" name="product_id">
-
+        <label for="product-url">Product Img URL:</label>
+        <input type="url" id="url"  formControlName="imgUrl" name="product_url" required/>
+        <div *ngIf="addProductForm.controls['imgUrl'].invalid && addProductForm.controls['imgUrl'].touched" class="alert alert-danger">
+          <div *ngIf="addProductForm.controls['imgUrl'].errors">
+        URL is not valid.
+         </div>
+         </div>
+        &nbsp;&nbsp;&nbsp;
         <label for="product-desc">Product Description:</label>
-        <input type="text" id="product-desc" name="product-desc">
-
+        <input type="text" id="product-desc"  formControlName="productDesc" name="product-desc"required/>
+        <div *ngIf="addProductForm.controls['productDesc'].invalid && addProductForm.controls['productDesc'].touched" class="alert alert-danger">
+          <div *ngIf="addProductForm.controls['productDesc'].errors">
+        Product name must be alphabets
+         </div>
+         </div>
           <div class="controls">
     <label class="fa fa-sort">Category</label>
-    <select class="floatLabel">
-
-      <option value="cat1"></option>
-      <option value="cat1">cat1</option>
-      <option value="cat1">cat1</option>
-      <option value="cat1">cat1</option>
-      <option value="cat1">cat1</option>
-      <option value="cat1">cat1</option>
+    <select class="floatLabel"  formControlName="categoryName" required>
+      <option value="0">--Select--</option>
+      <option  *ngFor="let category of categories" value={{category.catName}}>
+  {{category.catName}}
+</option>
     </select>
 
              <label for="product-id">Product Price:</label>
-        <input type="number" id="price" name="product_price">
+        <input type="number" id="price" name="product_price"  formControlName="price" required/>
+
+
 
             <label for="name">Manufacturer Name:</label>
-        <input type="text" id="name" name="manu_name">
+        <input type="text" id="name" required formControlName="mfgName" name="manu_name" required/>
+        <div *ngIf="addProductForm.controls['mfgName'].invalid && addProductForm.controls['mfgName'].touched" class="alert alert-danger">
+          <div *ngIf="addProductForm.controls['mfgName'].errors">
+        Product name must be alphabets
+         </div>
+         </div>
   </div>
   <button type="submit">Add</button>
+  <!-- <button type="submit">update</button>
+  <button type="submit">Delete</button> -->
       </fieldset>
+
     </form>
+
 
 
 

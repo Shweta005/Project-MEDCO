@@ -2,23 +2,23 @@
 <div class="row">
   <div class="col-md-12">
 
-    <form action="index.html" method="post" class="form2">
+    <form [formGroup]="addCategoryForm"  (submit)="addCategory()" class="form2">
      <fieldset>
 
         <legend><span class="number">2</span> Add Category</legend>
 
         <label for="name">Catgory Id:</label>
-        <input type="number" id="car_id" name="cat_id">
+        <input type="number" id="categoryId" required  name="cat_id">
 
        <label for="name">Catgory Name:</label>
-        <input type="text" id="car_name" name="cat_name">
-
-
-
+        <input type="text" id="categoryName" required formControlName="catName" name="cat_name">
        </fieldset>
 
-      <button type="submit">Add</button>
-
+    <div class="flex-content-between">
+      <button  type="submit" >Add</button>
+     <button  type="submit">Update</button>
+      <button  type="submit" >Delete</button>
+    </div>
      </form>
 
 

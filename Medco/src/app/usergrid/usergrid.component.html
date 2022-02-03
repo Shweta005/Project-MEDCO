@@ -17,9 +17,9 @@
           <!--Table head-->
           <thead>
             <tr>
-              <th>#</th>
+             <th>#</th>
               <th>Name</th>
-              <th>Email</th>
+              <!-- <th>Email</th> -->
               <th>Mobile No.</th>
             </tr>
           </thead>
@@ -27,9 +27,10 @@
           <!--Table body-->
           <tbody *ngFor="let user of users">
             <tr>
-              <th scope="row">{{user.id}}</th>
-              <td>{{ user.firstName }}&nbsp;{{user.lastName}} </td>
-              <td>{{ user.email}}</td>
+             <th scope="row">{{user.id}}</th>
+              <td>{{ user.firstName }} &nbsp;{{user.lastName}}  </td>
+
+              <!-- <td>{{ user.email}}</td> -->
               <td>{{ user.mbleNo }}</td>
             </tr>
           </tbody>

@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+
+import { ProductService } from 'src/app/services/product.service'
 @Component({
   selector: 'app-addcategory',
   templateUrl: './addcategory.component.html',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddcategoryComponent implements OnInit {
   title="Add Category"
-  constructor() { }
+   id:string = ''
+   addCategoryForm : FormGroup = new FormGroup({});
+
+  constructor(private formBuilder : FormBuilder,private dataService: ProductService,private _snackBar: MatSnackBar,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.addCategoryForm = this.formBuilder.group({
+      'catName' : new FormControl(''),
+      // 'createdAt': new Date(''),
+			// 'updatedAt': new Date('')
+    })
+
+    //This will take id from url of activated route
+    // this.activatedRoute.params.subscribe(data=>{
+    //     this.id = data['id'];
+    // });
+
   }
+
+   addCategory(){
+     return this.dataService.addCategory(this.addCategoryForm.value).subscribe(data=>{
+      this._snackBar.open("Category added successfully!");
+      console.log(data);
+     }, err =>{
+      this._snackBar.open("Unable to create category");
+     });
+
+
+   }
+
 
 }

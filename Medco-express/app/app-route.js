@@ -3,7 +3,7 @@ module.exports=(app)=>{
     const express=require('express');
 
     const ROUTER=express.Router();
-
+ 
 
     ///////ProductController : product apis
     const ProductController=require('./product-controller');
@@ -23,7 +23,12 @@ module.exports=(app)=>{
       
          ////User controller  : user apis 
     const UserController=require('./user-controller');
+
+    
+    // ROUTER.post('/users/login',UserController.login);
     ROUTER.get('/users',UserController.findAll);
+
+    // ROUTER.get('/users/:email&:password',UserController.findOne);
 
     ROUTER.get('/users/:id',UserController.findByPk);
 

@@ -49,13 +49,14 @@ exports.findByPk=(req,resp)=>{
 // VALUES (?, ?, ?, ?, ?);
 exports.create = (req, resp) => {
     if(!req.body.orderItem){
-        res.status(400).send({
+        resp.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
     const newOrder={
-        
+        userId:req.body.userId,
+        prodId:req.body.prodId,
         orderItem:req.body.orderItem,
         imgUrl: req.body.imgUrl,
         price:req.body.price,

@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { faAirFreshener, faBars,faBox,faBoxes,faCogs, faHome, faInbox,  faPhone, faSearch, faShippingFast, faTachometerAlt, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAirFreshener, faBars,faBox,faBoxes,faCogs, faHome, faInbox,  faListAlt,  faPhone, faShippingFast, faSignOutAlt, faTachometerAlt,  faUser } from '@fortawesome/free-solid-svg-icons';
 import{} from '@fortawesome/fontawesome-svg-core'
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  faSearch = faSearch;
+  faSignout = faSignOutAlt;
   faHome = faHome;
   faTachometerAlt = faTachometerAlt;
   faInbox = faInbox;
@@ -20,10 +22,16 @@ export class NavbarComponent implements OnInit {
   faBox = faBox;
   faAirFreshener = faAirFreshener;
   faBars = faBars;
+  faList = faListAlt
 
-  constructor() { }
+  constructor(private router:Router) { }
 
+  logout() : void{
+    this.router.navigate(['/admin']);
+ }
   ngOnInit() {
+
+
 
 $('#menu-toggle,#menu-overlay').on("click",function(){
   $('body').toggleClass('open-menu');
@@ -42,12 +50,12 @@ $('#tabs li').on("click",function(){
   $(this).addClass('active')
 });
 
-$('#admin-search input').on('focus',function(){
-  $('#header_logo').addClass('hidden');
-});
-$('#admin-search input').on('blur',function(){
-  $('#header_logo').removeClass('hidden');
-});
+// $('#admin-search input').on('focus',function(){
+//   $('#header_logo').addClass('hidden');
+// });
+// $('#admin-search input').on('blur',function(){
+//   $('#header_logo').removeClass('hidden');
+// });
   }
 
 }

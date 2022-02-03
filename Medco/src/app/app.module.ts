@@ -16,7 +16,23 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY} from '@angular/material/snack-bar';
+import { CategorygridComponent } from './categorygrid/categorygrid.component';
+
+import { FooterComponent } from './user/footer/footer.component';
+import { HeaderComponent } from './user/header/header.component';
+import { HomeComponent } from './user/home/home.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { EditcategoryComponent } from './category/editcategory/editcategory.component';
+import { ProductComponent } from './products/product/product.component';
+import { CartComponent } from './user/cart/cart.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +45,23 @@ import { FormsModule } from '@angular/forms';
     ProductgridComponent,
     DashboardComponent,
     AddproductComponent,
-    AddcategoryComponent
+    AddcategoryComponent,
+    CategorygridComponent,
+    SignupComponent,
+    LoginComponent,
+
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    UserHomeComponent,
+    EditcategoryComponent,
+    ProductComponent,
+    CartComponent,
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -38,10 +70,14 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
+  ],
+  providers: [
+   { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY, useValue:{duration:2500}},
 
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

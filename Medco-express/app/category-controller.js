@@ -49,7 +49,7 @@ exports.findByPk=(req,resp)=>{
 // VALUES (?, ?, ?, ?, ?);
 exports.create = (req, resp) => {
     if(!req.body.catName){
-        res.status(400).send({
+        resp.status(400).send({
             message: "Content can not be empty!"
         });
         return;
@@ -82,7 +82,7 @@ exports.update = (req, resp) => {
             });
             } else {
             resp.send({
-                message: `Cannot update Person with id=${id}. Maybe Person was not found or req.body is empty!`
+                message: `Cannot update Category with id=${id}. Maybe Category was not found or req.body is empty!`
             });
             }
         })

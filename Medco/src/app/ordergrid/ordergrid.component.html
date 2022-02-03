@@ -27,26 +27,26 @@
                           <!--Table head-->
                           <thead>
                               <tr>
-                                  <th>#</th>
+                                  <!-- <th>#</th> -->
                                   <th>Item</th>
                                   <th>Price</th>
                                   <th>Qty.</th>
                                   <th>Status</th>
-                                  <th>Order Date</th>
-                                  <th>Delivery Date</th>
+                                  <!-- <th>Order Date</th> -->
+                                  <!-- <th>Delivery Date</th> -->
                               </tr>
                           </thead>
                           <!--Table head-->
                           <!--Table body-->
                           <tbody *ngFor="let order of orders">
                               <tr>
-                                  <th scope="row">{{order.id}}</th>
+                                  <!-- <th scope="row">{{order.id}}</th> -->
                                   <td>{{order.orderItem}}</td>
                                   <td>Rs.{{order.price}} </td>
                                   <td>{{order.quantity}}</td>
                                   <td>{{order.orderStatus}}</td>
-                                  <td>{{order.orderedDate}}</td>
-                                  <td>{{order.deliveryDate}}</td>
+                                  <!-- <td>{{order.orderedDate}}</td> -->
+                                  <!-- <td>{{order.deliveryDate}}</td> -->
                               </tr>
 
                           </tbody>
